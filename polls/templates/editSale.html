@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Sale</title>
+
+      {% load staticfiles %}
+    <link href="{% static 'semantic/semantic.min.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'semantic/semantic.min.js'%}"></script>
+
+    <style>
+        a{
+            color:inherit
+            }
+        a:hover{
+            color:inherit
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header center aligned "><i class="setting icon"></i> Sales admin panel page</h2>
+</div>
+
+<form action="/{{purchase.idPurchase}}/" method="POST">
+    {% csrf_token %}
+    <div class="ui container segment">
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Buyer</label>
+                            <select  class="ui dropdown" name="idBuyer" >
+                                {% for buyer in buyers %}
+                              <option value="{{buyer.idBuyer}}" {% if purchase.buyer.idBuyer == buyer.idBuyer %}
+                                      selected="selected"
+                                      {% endif %}>{{buyer.nameBuyer}} {{buyer.surnameBuyer}}</option>
+                                {% endfor %}
+                            </select>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Book</label>
+                            <select  class="ui dropdown" name="idBook">
+                                {% for book in books %}
+                              <option value="{{book.idBook}}" {% if purchase.book.idBook == book.idBook %}
+                                      selected="selected"
+                                      {% endif %}>{{book.author}} : {{book.titleBook}}</option>
+                                {% endfor %}
+                            </select>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Journal</label>
+                            <select  class="ui dropdown" name="idJournal" >
+                                {% for journal in journals %}
+                              <option value="{{journal.idJournal}}" {% if purchase.journal.idJournal == journal.idJournal %}
+                                      selected="selected" {% endif %}>{{journal.titleJournal}}</option>
+                                {% endfor %}
+                            </select>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                    <div class="ui fields">
+                        <div class="field">
+                            <label>Price</label>
+                            <input type="number" placeholder="Price" name="price" value="{{purchase.price}}">
+                        </div>
+                        <div class="field">
+                            <label>Sale date</label>
+                            <input type="date" placeholder="Sale date" name="buyDate" value="{{purchase.buyDate}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="ui one column centered very padded grid">
+            <div class="ui form ">
+                <div class="row">
+                   <button type="submit" class="ui button blue">Edit sale</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+
+    {% load staticfiles %}
+    <link href="{% static 'semantic/semantic.min.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'semantic/semantic.min.js'%}"></script>
+
+    <style>
+        a{
+            color:inherit
+            }
+        a:hover{
+            color:inherit
+        }
+
+    </style>
+</head>
+<body >
+
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header center aligned ">Admin panel</h2>
+</div>
+
+<div class="ui one column grid">
+
+
+
+
+       <div class="row">
+        <div class="ui grid center">
+            <div class="ui five wide column"></div>
+            <div class="ui center aligned segment six wide column">
+                <div class="ui stacked header"><h1>Sales</h1></div>
+                <div class="ui stacked horizontal divider">Options</div>
+                <div class="ui stackable seven columned grid ">
+                <div class="row">
+                    <div class="three wide centered column ">
+                        <a href="add"><button class="ui  button green">Add</button></a>
+                    </div>
+                    <div class="one wide column"></div>
+                    <div class="three wide centered column ">
+                        <a href="list"><button class="ui button yellow">Search</button></a>
+                    </div>
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="ui grid center">
+            <div class="ui five wide column"></div>
+            <div class="ui center aligned segment six wide column">
+                <div class="ui stacked header"><h1>Database</h1></div>
+                <div class="ui stacked horizontal divider">Press Button</div>
+                    <button class="ui button red" ><a href="init">Load</a> </button>
+                </div>
+        </div>
+    </div>
+
+        {% if message != None %}
+    <div class="row centered">
+        <div class="ui cards">
+            <div class="card">
+                <div class="content">
+                    <div class="header">Success</div>
+                    <div class="meta">Reloaded database</div>
+                    <div class="description">
+                    {{message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+
+</div>
+
+</body>
+</html>

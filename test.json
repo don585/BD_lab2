@@ -1,0 +1,73 @@
+{
+  "journal":[
+    {
+      "titleJournal":"Viva",
+      "publisher":"London"
+    },
+    {
+      "titleJournal":"Relax",
+      "publisher":"America"
+    },
+    {
+      "titleJournal":"Matrix",
+      "publisher":"America"
+    }
+  ],
+  "book":[
+    {
+      "titleBook": "We are gods",
+      "author": "Bernar Verber",
+      "publisher": "London"
+    },
+    {
+      "titleBook": "Utopia",
+      "author": "Thomas More",
+      "publisher":"Great Britain"
+    },
+    {
+      "titleBook": "War and piece",
+      "author": "Lev Tolstoy",
+      "publisher":"China"
+    }
+  ],
+  "buyer":[
+    {
+      "nameUser": "Dasha",
+      "surnameUser": "Bilogub",
+      "age": "True"
+    },
+    {
+      "nameUser": "Nastya",
+      "surnameUser": "Trofimova",
+      "age": "False"
+    },
+    {
+      "nameUser": "Igor",
+      "surnameUser": "Parmon",
+      "age": "True"
+    }
+  ],
+  "purchase":[
+    {
+      "book": "1",
+      "titleJournal": "2",
+      "buyer": "3",
+      "price": "450",
+      "saleDate": "2016-04-15"
+    },
+    {
+      "book": "3",
+      "titleJournal": "1",
+      "buyer": "2",
+      "price": "140",
+      "saleDate": "2016-03-27"
+    },
+    {
+      "book": "2",
+      "titleJournal": "3",
+      "buyer": "1",
+      "price": "560",
+      "saleDate": "2016-05-15"
+    }
+  ]
+}

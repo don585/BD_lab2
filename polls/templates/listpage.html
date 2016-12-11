@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List page</title>
+     {% load staticfiles %}
+    <link href="{% static 'semantic/semantic.min.css'%}" rel="stylesheet" type="text/css">
+    <script src="{% static 'semantic/semantic.min.js'%}"></script>
+</head>
+<body>
+
+
+<div class="ui raised  text container segment">
+  <h2 class="ui header center aligned "> Full list page</h2>
+</div>
+<br>
+
+
+<table class="ui celled striped padded table">
+  <thead>
+    <tr>
+        <th></th>
+        <th>Owner</th>
+        <th>Customer is older than 18</th>
+        <th>Book title</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Journal title</th>
+        <th>Publisher producer</th>
+        <th>Price</th>
+        <th>Sale date</th>
+    {% if list != None%}
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for ss in {{list.count()}} %}
+        <tr>
+            <th>{{ss.idPurchase}}</th>
+            <th>{{ss.buyer.nameBuyer}} {{" "}} {{ss.buyer.surnameBuyer}}</th>
+            <th>{{ss.buyer.age}}</th>
+            <th>{{ss.book.titleBook}}</th>
+            <th>{{ss.book.author}}</th>
+            <th>{{ss.book.publisherBook}}</th>
+            <th>{{ss.journal.titleJournal}}</th>
+            <th>{{ss.journal.publisher}}</th>
+            <th>{{ss.price}}</th>
+            <th>{{ss.buyDate}}</th>
+            <th><a href="/{{ss.idPurchase}}"> <button class="ui blue button">Edit</button> </a></th>
+            <th><a href="/remove/{{ss.idPurchase}}">  <button class="ui red button">Delete</button> </a></th>
+        </tr>
+        {% endfor %}
+    {% endif %}
+  </tbody>
+
+</table>
+<br>
+
+<div class="ui grid">
+    <div class="row">
+
+        <div class="ui center aligned secondary segment three wide column">
+            <h3>Search by user age</h3>
+            <form class="ui form " method="get">
+                <button class="ui yellow button" type="submit" name="Age">Filter</button>
+            </form>
+        </div>
+        <div class="ui center aligned two wide column"></div>
+        <div class="ui center aligned secondary segment three wide column">
+            <h3>Search by date</h3>
+            <form class="ui form" method="get">
+                <div class="field">
+                    <label>From date</label>
+                    <input type="text" name="fromDate" placeholder="From">
+                </div>
+                <div class="field">
+                    <label>To date</label>
+                    <input type="text" name="toDate" placeholder="To">
+                </div>
+                <button class="ui yellow button" type="submit">Filter</button>
+            </form>
+        </div>
+        <div class="ui center aligned two wide column"></div>
+        <div class="ui center aligned secondary segment two wide column">
+            <h3>Search by string</h3>
+            <form class="ui form" method="get">
+                <div class="field">
+                    <label>String</label>
+                    <input type="text" name="containsString" placeholder="String">
+                </div>
+                <button class="ui yellow button" type="submit">Filter</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
